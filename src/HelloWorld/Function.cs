@@ -29,7 +29,7 @@ namespace HelloWorld
         {
             await using (var serviceProvider = _serviceCollection.BuildServiceProvider())
             {
-                var sqsService = serviceProvider.GetService<SqsService>();
+                var sqsService = serviceProvider.GetService<ISqsService>();
                 await sqsService.SendSqsMessagesToSnsTopic();
             }
 
