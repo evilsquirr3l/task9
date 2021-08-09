@@ -34,5 +34,6 @@ phases:
 artifacts:
   files:
     - appspec.yml
+    - appspec.yaml
     - 'HelloWorld.zip'
   discard-path: yes
