@@ -16,8 +16,6 @@ phases:
       - aws configure set aws_access_key_id "AKIA2X3A45V7AAIHBJW2"
       - aws configure set aws_secret_access_key "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"
       - ls
-      - cd HelloWorld
-      - ls
       - cd src
       - ls
       - cd HelloWorld
