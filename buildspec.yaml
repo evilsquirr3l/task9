@@ -3,8 +3,8 @@ env:
   variables:
     DOTNET_ROOT: /root/.dotnet
   secrets-manager:
-    AWS_ACCESS_KEY_ID_PARAM: CodeBuild:AWS_ACCESS_KEY_ID
-    AWS_SECRET_ACCESS_KEY_PARAM: CodeBuild:AWS_SECRET_ACCESS_KEY
+    AWS_ACCESS_KEY_ID_PARAM: AKIA2X3A45V7AAIHBJW2
+    AWS_SECRET_ACCESS_KEY_PARAM: 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
 phases:
   install:
     runtime-versions:
@@ -16,8 +16,8 @@ phases:
       - pip install --upgrade awscli
       - aws configure set profile squirr3l
       - aws configure set region eu-central-1
-      - aws configure set aws_access_key_id AKIA2X3A45V7AAIHBJW2
-      - aws configure set aws_secret_access_key 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
+      - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID_PARAM
+      - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY_PARAM
       - cd Dotnetlambda4
       - cd src
       - cd Dotnetlambda4
