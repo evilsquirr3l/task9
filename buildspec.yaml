@@ -1,27 +1,32 @@
 version: 0.2
-
+env:
+  variables:
+    DOTNET_ROOT: /root/.dotnet
+  secrets-manager:
+    AWS_ACCESS_KEY_ID_PARAM: "AKIA2X3A45V7AAIHBJW2"
+    AWS_SECRET_ACCESS_KEY_PARAM: "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"
 phases:
   install:
     runtime-versions:
-      dotnet: latest
-
+      dotnet: 3.1
   pre_build:
     commands:
       - echo Restore started on `date`
-      - dotnet restore ./HelloWorld/HelloWorld.csproj
+      - export PATH="$PATH:/root/.dotnet/tools"
+      - pip install --upgrade awscli
+      - aws configure set profile $Profile
+      - aws configure set region $Region
+      - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID_PARAM
+      - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY_PARAM
+      - cd Dotnetlambda4
+      - cd src
+      - cd Dotnetlambda4
+      - dotnet clean
+      - dotnet restore
   build:
     commands:
       - echo Build started on `date`
-      - dotnet build ./HelloWorld/HelloWorld.csproj
-
-  post_build:
-    commands:
-      - echo Publish started on `date`
-      # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-linux-platform-bundle-app.html
-      - dotnet publish -c Release -r linux-x64 --self-contained false ./HelloWorld/HelloWorld.csproj
-
-artifacts:
-  files:
-    - '**/*'
-  base-directory: ./bin/Release/netcoreapp3.1/linux-x64/publish/
-  discard-paths: no
+      - dotnet new -i Amazon.Lambda.Templates::*
+      - dotnet tool install -g Amazon.Lambda.Tools
+      - dotnet tool update -g Amazon.Lambda.Tools
+      - dotnet lambda deploy-function "Dotnetlambda4" --function-role "arn:aws:iam::738400726398:role/labmdaRole" --region "eu-central-1"
