@@ -28,9 +28,10 @@ phases:
       - dotnet tool install -g Amazon.Lambda.Tools
       - dotnet tool update -g Amazon.Lambda.Tools
       - dotnet lambda package "HelloWorld"
-      - ls -l
+      - cd ../../
+      - cp ./src/HelloWorld/HelloWorld.zip ./
 artifacts:
   files:
     - appspec.yml
-    - './src/HelloWorld/HelloWorld.zip'
+    - 'HelloWorld.zip'
   discard-path: yes
