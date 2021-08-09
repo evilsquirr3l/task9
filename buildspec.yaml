@@ -15,9 +15,9 @@ phases:
       - aws configure set region eu-central-1
       - aws configure set aws_access_key_id "AKIA2X3A45V7AAIHBJW2"
       - aws configure set aws_secret_access_key "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"
-      - cd Dotnetlambda4
+      - cd HelloWorld
       - cd src
-      - cd Dotnetlambda4
+      - cd HelloWorld
       - dotnet clean
       - dotnet restore
   build:
@@ -26,4 +26,4 @@ phases:
       - dotnet new -i Amazon.Lambda.Templates::*
       - dotnet tool install -g Amazon.Lambda.Tools
       - dotnet tool update -g Amazon.Lambda.Tools
-      - dotnet lambda deploy-function "Dotnetlambda4" --function-role "arn:aws:iam::738400726398:role/labmdaRole" --region "eu-central-1"
+      - dotnet lambda deploy-function "HelloWorld" --function-role "arn:aws:iam::738400726398:role/labmdaRole" --region "eu-central-1"
