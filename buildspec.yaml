@@ -28,3 +28,7 @@ phases:
       - dotnet tool install -g Amazon.Lambda.Tools
       - dotnet tool update -g Amazon.Lambda.Tools
       - dotnet lambda package "HelloWorld"
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist'
