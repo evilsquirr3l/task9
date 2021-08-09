@@ -27,4 +27,4 @@ phases:
       - dotnet new -i Amazon.Lambda.Templates::*
       - dotnet tool install -g Amazon.Lambda.Tools
       - dotnet tool update -g Amazon.Lambda.Tools
-      #- dotnet lambda deploy-function "HelloWorld" --function-role "arn:aws:iam::738400726398:role/labmdaRole" --region "eu-central-1"
+      - dotnet lambda deploy-function "HelloWorld" --function-role "arn:aws:iam::738400726398:role/labmdaRole" --region "eu-central-1"
