@@ -1,31 +1,29 @@
-# Based on https://github.com/PrakashTrove/AWS-CodeBuild-NetCore/blob/master/buildspec.yml
-# AWS CodeBuild spec to build an Elastic Beanstalk artifact for AWS CodePipeline to deploy
 version: 0.2
 
 phases:
   install:
     runtime-versions:
-      dotnet: 5.0
-      #dotnet: latest - Latest resolve to 3.1, check this issue https://github.com/aws/aws-codebuild-docker-images/issues/414
+      dotnet: latest
 
   pre_build:
     commands:
       - echo Restore started on `date`
-      - dotnet restore test-api/test-api.csproj
+      - cd .src/HelloWorld
+      - dotnet restore
 
   build:
     commands:
       - echo Build started on `date`
-      - dotnet build test-api/test-api.csproj
-      - echo Test started on `date`
-      - dotnet test test-api/test-api.csproj
+      - dotnet build Api.csproj
 
   post_build:
     commands:
       - echo Publish started on `date`
       # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-linux-platform-bundle-app.html
-      - dotnet publish -c Release -r linux-x64 -o ./ test-api/test-api.csproj
+      - dotnet publish -c Release -r linux-x64 --self-contained false Api.csproj
 
 artifacts:
   files:
-    - ./**/*
+    - '**/*'
+  base-directory: ./bin/Release/netcoreapp3.1/linux-x64/publish/
+  discard-paths: no
