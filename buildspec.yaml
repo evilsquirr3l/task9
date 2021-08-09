@@ -8,17 +8,17 @@ phases:
   pre_build:
     commands:
       - echo Restore started on `date`
-      - dotnet restore ./src/HelloWorld/HelloWorld.csproj
+      - dotnet restore ./HelloWorld/HelloWorld.csproj
   build:
     commands:
       - echo Build started on `date`
-      - dotnet build ./src/HelloWorld/HelloWorld.csproj
+      - dotnet build ./HelloWorld/HelloWorld.csproj
 
   post_build:
     commands:
       - echo Publish started on `date`
       # https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/dotnet-linux-platform-bundle-app.html
-      - dotnet publish -c Release -r linux-x64 --self-contained false ./src/HelloWorld/HelloWorld.csproj
+      - dotnet publish -c Release -r linux-x64 --self-contained false ./HelloWorld/HelloWorld.csproj
 
 artifacts:
   files:
