@@ -30,4 +30,5 @@ phases:
       - dotnet lambda package "HelloWorld"
 artifacts:
   files:
+    - appspec.yml
     - '**/*'
