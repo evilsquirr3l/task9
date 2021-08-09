@@ -24,7 +24,7 @@ namespace HelloWorld
             ConfigureServices();
         }
 
-        public async Task<APIGatewayProxyResponse> FunctionHandler(APIGatewayProxyRequest apigProxyEvent,
+        public async Task<APIGatewayProxyResponse> FunctionHandler(APIGatewayProxyRequest gatewayEvent,
             ILambdaContext context)
         {
             await using (var serviceProvider = _serviceCollection.BuildServiceProvider())
@@ -35,14 +35,22 @@ namespace HelloWorld
 
             var body = new Dictionary<string, string>
             {
-                {"Success!", "Messages from sqs topic were sent"},
+                {"Success!", "Messages from sqs topic were sent"}
             };
+            
+            gatewayEvent.Headers.TryGetValue("sender", out string sender);
+            if (string.IsNullOrEmpty(sender))
+            {
+                sender = "cloudwatch rule";
+            }
+            
+            Console.WriteLine($"Hello from {sender}");
 
             return new APIGatewayProxyResponse
             {
                 Body = JsonConvert.SerializeObject(body),
                 StatusCode = 200,
-                Headers = new Dictionary<string, string> {{"Content-Type", "application/json"}}
+                Headers = new Dictionary<string, string> {{"Content-Type", "application/json"}, {"Sender", sender}}
             };
         }
         
