@@ -8,13 +8,11 @@ phases:
   pre_build:
     commands:
       - echo Restore started on `date`
-      - cd .src/HelloWorld
-      - dotnet restore
-
+      - dotnet restore HelloWorld.csproj
   build:
     commands:
       - echo Build started on `date`
-      - dotnet build Api.csproj
+      - dotnet build HelloWorld.csproj
 
   post_build:
     commands:
