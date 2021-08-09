@@ -14,10 +14,10 @@ phases:
       - echo Restore started on `date`
       - export PATH="$PATH:/root/.dotnet/tools"
       - pip install --upgrade awscli
-      - aws configure set profile $Profile
-      - aws configure set region $Region
-      - aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID_PARAM
-      - aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY_PARAM
+      - aws configure set profile squirr3l
+      - aws configure set region eu-central-1
+      - aws configure set aws_access_key_id AKIA2X3A45V7AAIHBJW2
+      - aws configure set aws_secret_access_key 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
       - cd Dotnetlambda4
       - cd src
       - cd Dotnetlambda4
