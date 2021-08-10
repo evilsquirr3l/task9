@@ -29,6 +29,7 @@ phases:
       - dotnet tool install -g Amazon.Lambda.Tools
       - dotnet tool update -g Amazon.Lambda.Tools
       - dotnet lambda package "HelloWorld"
+      - sam deploy --template-file package.yml --stack-name task10xCloudSAM --capabilities CAPABILITY_SAM
       - cd ../../
       - cp ./src/HelloWorld/HelloWorld.zip ./
 artifacts:
