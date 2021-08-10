@@ -32,7 +32,6 @@ phases:
       - ls
       - cd ../../
       - ls
-      - sam deploy --template-file package.yml --stack-name task10xCloudSAM --capabilities CAPABILITY_IAM
       - cp ./src/HelloWorld/HelloWorld.zip ./
 artifacts:
   files:
