@@ -8,6 +8,7 @@
 version: 0.0
 # In the Resources section specify the name, alias, 
 # target version, and (optional) the current version of your AWS Lambda function. 
+# trigger 
 Resources:
   - Task10: # Replace "MyFunction" with the name of your Lambda function 
       Type: AWS::Lambda::Function
