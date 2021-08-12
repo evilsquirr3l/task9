@@ -7,15 +7,15 @@ using Newtonsoft.Json;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.OpsWorks.Model;
-using HelloWorld.Interfaces;
-using HelloWorld.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using SnsNotifierLambda.Interfaces;
+using SnsNotifierLambda.Services;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 
-namespace HelloWorld
+namespace SnsNotifierLambda
 {
     public class Function
     {

@@ -12,7 +12,7 @@ Resources:
   - Task10: # Replace "MyFunction" with the name of your Lambda function 
       Type: AWS::Lambda::Function
       Properties:
-        Name: "task10SAM-HelloWorldFunction-M6qUR5Zf5BE7" # Specify the name of your Lambda function
+        Name: "task10SAM-SnsNotifierLambdaFunction-M6qUR5Zf5BE7" # Specify the name of your Lambda function
         Alias: "task10" # Specify the alias for your Lambda function
         CurrentVersion: "1" # Specify the current version of your Lambda function
         TargetVersion: "1" # Specify the version of your Lambda function to deploy.

@@ -12,7 +12,7 @@ using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.RuntimeSupport;
 using Amazon.Lambda.Serialization.Json;
 
-namespace HelloWorld
+namespace SnsNotifierLambda
 {
     public class Program
     {

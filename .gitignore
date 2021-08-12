@@ -446,6 +446,6 @@ $RECYCLE.BIN/
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-/.aws-sam/build/HelloWorldFunction/
-/src/HelloWorld/appsettings.Development.json
-/src/HelloWorld/appsettings.json
+/.aws-sam/build/SnsNotifierLambdaFunction/
+/src/SnsNotifierLambda/appsettings.Development.json
+/src/SnsNotifierLambda/appsettings.json

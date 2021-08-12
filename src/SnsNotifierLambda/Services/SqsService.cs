@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Amazon.SimpleNotificationService.Model;
 using Amazon.SQS;
 using Amazon.SQS.Model;
-using HelloWorld.Interfaces;
+using SnsNotifierLambda.Interfaces;
 
-namespace HelloWorld.Services
+namespace SnsNotifierLambda.Services
 {
     public class SqsService : ISqsService
     {

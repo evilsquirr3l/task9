@@ -1,4 +1,4 @@
-namespace HelloWorld
+namespace SnsNotifierLambda
 {
     public class AppSettings
     {

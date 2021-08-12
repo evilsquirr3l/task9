@@ -1,7 +1,7 @@
 using Amazon.Lambda.AspNetCoreServer;
 using Microsoft.AspNetCore.Hosting;
 
-namespace HelloWorld
+namespace SnsNotifierLambda
 {
     public class LambdaEntryPoint : APIGatewayProxyFunction
         // When using an ELB's Application Load Balancer as the event source change 

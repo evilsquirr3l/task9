@@ -1,8 +1,8 @@
 using System;
-using HelloWorld.Interfaces;
 using Microsoft.Extensions.Hosting;
+using SnsNotifierLambda.Interfaces;
 
-namespace HelloWorld.Services
+namespace SnsNotifierLambda.Services
 {
     public class EnvironmentService : IEnvironmentService
     {
