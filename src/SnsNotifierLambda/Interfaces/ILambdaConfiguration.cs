@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace HelloWorld
+namespace SnsNotifierLambda.Interfaces
 {
     public interface ILambdaConfiguration
     {

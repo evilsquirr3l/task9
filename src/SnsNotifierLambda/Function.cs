@@ -9,11 +9,13 @@ using Amazon.Lambda.APIGatewayEvents;
 using Amazon.OpsWorks.Model;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using SnsNotifierLambda.Interfaces;
+using SnsNotifierLambda.Services;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 
-namespace HelloWorld
+namespace SnsNotifierLambda
 {
     public class Function
     {
@@ -66,7 +68,7 @@ namespace HelloWorld
             Configuration = _serviceCollection.BuildServiceProvider().GetService<ILambdaConfiguration>();
 
             var settings = Configuration?.Configuration.GetSection("AwsSettings").Get<AppSettings>();
-            // adding to service collection so that it can be resolved/injected as needed.
+            
             _serviceCollection.AddSingleton(settings);
         }
         

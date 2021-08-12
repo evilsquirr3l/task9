@@ -1,0 +1,42 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'Sample SAM Template for SnsNotifierLambda
+
+  '
+Globals:
+  Function:
+    Timeout: 10
+Resources:
+  SnsNotifierLambdaFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://task9xcloud/619fa4d45b678f830b82e3e77e2c08cc
+      Handler: SnsNotifierLambda::SnsNotifierLambda.Function::FunctionHandler
+      Runtime: dotnetcore3.1
+      MemorySize: 256
+      Environment:
+        Variables:
+          PARAM1: VALUE
+      Events:
+        SnsNotifierLambda:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
+Outputs:
+  SnsNotifierLambdaApi:
+    Description: API Gateway endpoint URL for Prod stage for SnsNotifierLambda function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
+  SnsNotifierLambdaFunction:
+    Description: SnsNotifierLambda Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - SnsNotifierLambdaFunction
+      - Arn
+  SnsNotifierLambdaFunctionIamRole:
+    Description: Implicit IAM Role created for SnsNotifierLambda function
+    Value:
+      Fn::GetAtt:
+      - SnsNotifierLambdaFunctionRole
+      - Arn

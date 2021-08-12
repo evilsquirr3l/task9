@@ -4,9 +4,9 @@ using Amazon.S3;
 using Amazon.SimpleNotificationService;
 using Amazon.SQS;
 using Amazon.SQS.Model;
-using Microsoft.Extensions.Options;
+using SnsNotifierLambda.Interfaces;
 
-namespace HelloWorld
+namespace SnsNotifierLambda.Services
 {
     public class AwsService : IAwsService
     {

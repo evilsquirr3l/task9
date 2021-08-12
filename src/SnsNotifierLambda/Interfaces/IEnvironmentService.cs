@@ -1,4 +1,4 @@
-namespace HelloWorld
+namespace SnsNotifierLambda.Interfaces
 {
     public interface IEnvironmentService
     {

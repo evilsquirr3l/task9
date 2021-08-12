@@ -1,7 +1,8 @@
 using System.IO;
 using Microsoft.Extensions.Configuration;
+using SnsNotifierLambda.Interfaces;
 
-namespace HelloWorld
+namespace SnsNotifierLambda.Services
 {
     public class LambdaConfigurationService : ILambdaConfiguration
     {
