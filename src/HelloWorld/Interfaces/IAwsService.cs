@@ -3,7 +3,7 @@ using Amazon.S3;
 using Amazon.SimpleNotificationService;
 using Amazon.SQS;
 
-namespace HelloWorld
+namespace HelloWorld.Interfaces
 {
     public interface IAwsService
     {

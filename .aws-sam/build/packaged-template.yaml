@@ -10,7 +10,7 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://task9xcloud/f01559952b89ead9ef7cbb14a19a6661
+      CodeUri: s3://task9xcloud/04b302a93e247c6310a400d02f296cee
       Handler: HelloWorld::HelloWorld.Function::FunctionHandler
       Runtime: dotnetcore3.1
       MemorySize: 256

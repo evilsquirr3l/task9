@@ -1,4 +1,4 @@
-namespace HelloWorld
+namespace HelloWorld.Interfaces
 {
     public interface IEnvironmentService
     {

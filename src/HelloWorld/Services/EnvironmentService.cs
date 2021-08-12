@@ -1,7 +1,8 @@
 using System;
+using HelloWorld.Interfaces;
 using Microsoft.Extensions.Hosting;
 
-namespace HelloWorld
+namespace HelloWorld.Services
 {
     public class EnvironmentService : IEnvironmentService
     {

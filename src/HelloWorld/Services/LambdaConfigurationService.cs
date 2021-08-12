@@ -1,7 +1,8 @@
 using System.IO;
+using HelloWorld.Interfaces;
 using Microsoft.Extensions.Configuration;
 
-namespace HelloWorld
+namespace HelloWorld.Services
 {
     public class LambdaConfigurationService : ILambdaConfiguration
     {

@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Configuration;
 
-namespace HelloWorld
+namespace HelloWorld.Interfaces
 {
     public interface ILambdaConfiguration
     {

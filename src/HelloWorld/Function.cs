@@ -7,6 +7,8 @@ using Newtonsoft.Json;
 using Amazon.Lambda.Core;
 using Amazon.Lambda.APIGatewayEvents;
 using Amazon.OpsWorks.Model;
+using HelloWorld.Interfaces;
+using HelloWorld.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
@@ -66,7 +68,7 @@ namespace HelloWorld
             Configuration = _serviceCollection.BuildServiceProvider().GetService<ILambdaConfiguration>();
 
             var settings = Configuration?.Configuration.GetSection("AwsSettings").Get<AppSettings>();
-            // adding to service collection so that it can be resolved/injected as needed.
+            
             _serviceCollection.AddSingleton(settings);
         }
         

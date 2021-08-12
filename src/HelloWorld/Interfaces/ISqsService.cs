@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using Amazon.SQS.Model;
 
-namespace HelloWorld
+namespace HelloWorld.Interfaces
 {
     public interface ISqsService
     {
