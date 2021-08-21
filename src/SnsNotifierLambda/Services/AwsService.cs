@@ -17,17 +17,6 @@ namespace SnsNotifierLambda.Services
             _appSettings = appSettings;
         }
         
-        public AmazonS3Client GetBucketAccessClient()
-        {
-            var credentials = GetAwsCredentials();
-            var config = new AmazonS3Config
-            {
-                RegionEndpoint = Amazon.RegionEndpoint.GetBySystemName(_appSettings.Region)
-            };
-
-            return new AmazonS3Client(credentials, config);
-        }
-
         public AmazonSimpleNotificationServiceClient GetSnsAccessClient()
         {
             var credentials = GetAwsCredentials();

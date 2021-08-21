@@ -32,27 +32,18 @@ namespace SnsNotifierLambda
             await using (var serviceProvider = _serviceCollection.BuildServiceProvider())
             {
                 var sqsService = serviceProvider.GetService<ISqsService>();
-                await sqsService.SendSqsMessagesToSnsTopic();
+                await sqsService.SendSqsMessagesToSnsTopic(3, 5);
             }
 
             var body = new Dictionary<string, string>
             {
                 {"Success!", "Messages from sqs topic were sent"}
             };
-            
-            gatewayEvent.Headers.TryGetValue("sender", out string sender);
-            if (string.IsNullOrEmpty(sender))
-            {
-                sender = "cloudwatch rule";
-            }
-            
-            Console.WriteLine($"Hello from {sender}");
 
             return new APIGatewayProxyResponse
             {
                 Body = JsonConvert.SerializeObject(body),
                 StatusCode = 200,
-                Headers = new Dictionary<string, string> {{"Content-Type", "application/json"}, {"Sender", sender}}
             };
         }
         

@@ -7,8 +7,6 @@ namespace SnsNotifierLambda.Interfaces
 {
     public interface IAwsService
     {
-        AmazonS3Client GetBucketAccessClient();
-
         AmazonSimpleNotificationServiceClient GetSnsAccessClient();
 
         string GetSnsTopicArn();
