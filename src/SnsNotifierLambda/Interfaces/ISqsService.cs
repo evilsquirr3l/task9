@@ -5,8 +5,6 @@ namespace SnsNotifierLambda.Interfaces
 {
     public interface ISqsService
     {
-        Task<SendMessageResponse> PublishEventToSqsQueue(string message);
-
-        Task SendSqsMessagesToSnsTopic();
+        Task SendSqsMessagesToSnsTopic(int waitTime, int maxMessages);
     }
 }

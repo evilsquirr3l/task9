@@ -15,24 +15,14 @@ namespace SnsNotifierLambda.Services
         {
             _awsService = awsService;
         }
-
-        public async Task<SendMessageResponse> PublishEventToSqsQueue(string message)
-        {
-            using var sqsClient = _awsService.GetSqsClient();
-
-            var queueUrl = await _awsService.GetQueueUrl();
-            var request = new SendMessageRequest(queueUrl, message);
-
-            return await sqsClient.SendMessageAsync(request);
-        }
-
-        public async Task SendSqsMessagesToSnsTopic()
+        
+        public async Task SendSqsMessagesToSnsTopic(int waitTime = 3, int maxMessages = 5)
         {
             using var sqsClient = _awsService.GetSqsClient();
             using var snsClient = _awsService.GetSnsAccessClient();
             var queueUrl = await _awsService.GetQueueUrl();
 
-            var listOfMessages = await GetMessages(sqsClient, queueUrl, 3, 5);
+            var listOfMessages = await GetMessages(sqsClient, queueUrl, waitTime, maxMessages);
 
             var numberOfMessages = listOfMessages.Count;
             if (numberOfMessages == 0)
